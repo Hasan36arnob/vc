@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>DevDigitax | Premium Portfolio & Creative Agency</title>
+  
+  <!-- Preconnect to Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0c10;
+      color: #eef2ff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e1f25;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3b3f4b;
+      border-radius: 10px;
+    }
+
+    /* main layout */
+    .main-wrapper {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 32px;
+      display: flex;
+      gap: 32px;
+      position: relative;
+    }
+
+    /* SIDEBAR premium glass */
+    .sidebar-premium {
+      flex: 1.2;
+      min-width: 280px;
+      max-width: 340px;
+      background: rgba(18, 22, 28, 0.85);
+      backdrop-filter: blur(14px);
+      border-radius: 44px;
+      padding: 32px 24px;
+      border: 1px solid rgba(79, 158, 255, 0.2);
+      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.5);
+      transition: all 0.3s ease;
+      height: fit-content;
+      position: sticky;
+      top: 24px;
+    }
+
+    .avatar-circle {
+      background: linear-gradient(135deg, #1e2b3c, #0f1722);
+      border-radius: 60px;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      border: 3px solid #3b82f6;
+      box-shadow: 0 0 25px rgba(59,130,246,0.3);
+    }
+    .avatar-circle img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+    .devdigitax-logo {
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(120deg, #FFFFFF, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-align: center;
+      letter-spacing: -0.5px;
+    }
+    .name-glitch {
+      font-size: 28px;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 16px;
+      background: linear-gradient(135deg, #f0f9ff, #b9e0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .title-badge {
+      background: rgba(59,130,246,0.2);
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+      margin: 12px 0 24px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(59,130,246,0.15);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #3b82f6;
+    }
+    .social-links {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+    .social-icon {
+      background: #1e293b;
+      width: 44px;
+      height: 44px;
+      border-radius: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      transition: all 0.2s;
+      color: #cbd5e6;
+    }
+    .social-icon:hover {
+      background: #3b82f6;
+      color: white;
+      transform: translateY(-4px);
+    }
+
+    /* main content area */
+    .content-area {
+      flex: 3;
+      background: #0f1117;
+      border-radius: 48px;
+      padding: 40px 44px;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.4);
+    }
+
+    /* navbar */
+    .glass-nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+    }
+    .nav-btn {
+      background: transparent;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 10px 26px;
+      border-radius: 60px;
+      color: #a0aec0;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .nav-btn.active, .nav-btn:hover {
+      background: #1e293b;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* pages */
+    .page {
+      display: none;
+      animation: fadeInUp 0.45s ease;
+    }
+    .page.active-page {
+      display: block;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    /* service grid */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .service-card {
+      background: #13161f;
+      padding: 28px 20px;
+      border-radius: 32px;
+      border: 1px solid #262c38;
+      transition: all 0.25s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: #3b82f6;
+      background: #181e2a;
+    }
+    .service-icon {
+      font-size: 42px;
+      color: #3b82f6;
+      margin-bottom: 20px;
+    }
+
+    /* skills progress */
+    .skill-item {
+      margin-bottom: 24px;
+    }
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .progress-bar {
+      background: #262c38;
+      border-radius: 20px;
+      height: 8px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      width: 0%;
+      height: 100%;
+      border-radius: 20px;
+    }
+
+    /* timeline */
+    .timeline-item {
+      border-left: 2px solid #3b82f6;
+      padding-left: 24px;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #3b82f6;
+      border-radius: 12px;
+      position: absolute;
+      left: -7px;
+      top: 6px;
+    }
+
+    /* Portfolio filters */
+    .filter-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .filter-btn {
+      background: #1e293b;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 40px;
+      color: #cbd5e1;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .filter-btn.active-filter, .filter-btn:hover {
+      background: #3b82f6;
+      color: white;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .portfolio-card {
+      background: #13161f;
+      border-radius: 28px;
+      overflow: hidden;
+      transition: 0.25s;
+      border: 1px solid #262c38;
+    }
+    .portfolio-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+    .portfolio-card:hover img {
+      transform: scale(1.05);
+    }
+    .portfolio-info {
+      padding: 18px;
+    }
+
+    /* contact form */
+    .form-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    input, textarea {
+      width: 100%;
+      background: #13161f;
+      border: 1px solid #2d3342;
+      padding: 16px 20px;
+      border-radius: 28px;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+    }
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .submit-btn {
+      background: #3b82f6;
+      border: none;
+      padding: 14px 34px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .submit-btn:hover {
+      background: #2563eb;
+      transform: scale(1.02);
+    }
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+      border-top: 1px solid #1e293b;
+      padding-top: 30px;
+    }
+
+    @media (max-width: 980px) {
+      .main-wrapper { flex-direction: column; padding: 20px; }
+      .sidebar-premium { max-width: 100%; position: relative; top: 0; }
+      .content-area { padding: 28px; }
+    }
+    @media (max-width: 580px) {
+      .form-group { grid-template-columns: 1fr; }
+    }
+    .highlight {
+      color: #3b82f6;
+    }
+    .testimonial-card {
+      background: #0f111a;
+      border-radius: 28px;
+      padding: 24px;
+      margin: 20px 0;
+      border-left: 6px solid #3b82f6;
+    }
+  </style>
+</head>
+<body>
+<div class="main-wrapper">
+  <!-- SIDEBAR with DevDigitax logo and premium look -->
+  <aside class="sidebar-premium">
+    <div class="avatar-circle">
+      <div class="devdigitax-logo">
+        <i class="fas fa-code-branch"></i> DD
+      </div>
+    </div>
+    <div class="devdigitax-logo" style="font-size: 28px;">DevDigitax</div>
+    <h2 class="name-glitch">Alex Morgan</h2>
+    <div class="title-badge">✦ Lead Creative Architect ✦</div>
+    
+    <div class="contact-info-item">
+      <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+      <div>alex@devdigitax.com</div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+      <div>+1 (415) 843-2298</div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-icon"><i class="fas fa-calendar-alt"></i></div>
+      <div>May 15, 1990</div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div>San Francisco, CA</div>
+    </div>
+    
+    <div class="social-links">
+      <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-dribbble"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+    </div>
+    <div style="margin-top: 28px; text-align: center; font-size: 12px;">
+      <i class="fas fa-crown"></i> Premium Partner
+    </div>
+  </aside>
+  
+  <!-- main dynamic content -->
+  <div class="content-area">
+    <div class="glass-nav">
+      <button class="nav-btn active" data-nav="about">About</button>
+      <button class="nav-btn" data-nav="resume">Resume</button>
+      <button class="nav-btn" data-nav="portfolio">Portfolio</button>
+      <button class="nav-btn" data-nav="blog">Insights</button>
+      <button class="nav-btn" data-nav="contact">Connect</button>
+    </div>
+    
+    <!-- ABOUT PAGE -->
+    <div id="about-page" class="page active-page">
+      <h2>Elevating <span class="highlight">digital</span> experiences</h2>
+      <p style="font-size: 18px; line-height: 1.6; margin-bottom: 32px;">I'm Alex Morgan — creative director & full-stack architect with 12+ years of turning visionary ideas into powerful digital realities. I merge bleeding-edge tech with bold aesthetics to craft brands that dominate.</p>
+      <div class="service-grid">
+        <div class="service-card"><div class="service-icon"><i class="fas fa-palette"></i></div><h3>UX/UI Design</h3><p>Intuitive, conversion-focused interfaces with micro-interactions.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-code"></i></div><h3>Web3 & React</h3><p>Modern full-stack apps, blazing fast & future-proof.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-mobile-alt"></i></div><h3>Mobile Apps</h3><p>iOS & Android with React Native, Flutter expertise.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-chart-line"></i></div><h3>Brand Strategy</h3><p>Data-driven identity systems that resonate globally.</p></div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fas fa-quote-left" style="color:#3b82f6; opacity:0.6; font-size: 28px;"></i>
+        <p style="margin: 12px 0;">"DevDigitax transformed our entire digital presence — from concept to launch, unmatched creativity and speed. Our revenue spiked 210%."</p>
+        <strong>— Sarah Chen, CMO at Vividly</strong>
+      </div>
+      <div class="clients" style="margin: 40px 0;">
+        <h3 style="margin-bottom: 24px;">Trusted by industry leaders</h3>
+        <div style="display: flex; gap: 28px; flex-wrap: wrap; opacity: 0.7;">
+          <i class="fab fa-google" style="font-size: 32px;"></i>
+          <i class="fab fa-microsoft" style="font-size: 32px;"></i>
+          <i class="fab fa-amazon" style="font-size: 32px;"></i>
+          <i class="fab fa-stripe" style="font-size: 32px;"></i>
+          <i class="fab fa-figma" style="font-size: 32px;"></i>
+        </div>
+      </div>
+    </div>
+    
+    <!-- RESUME PAGE -->
+    <div id="resume-page" class="page">
+      <h2>Professional <span class="highlight">blueprint</span></h2>
+      <div style="margin-bottom: 40px;">
+        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+        <div class="timeline-item"><h4>MSc in Interactive Design</h4><span>Stanford University | 2014-2016</span><p>Focus on HCI & advanced product design, thesis awarded excellence.</p></div>
+        <div class="timeline-item"><h4>BFA Digital Arts</h4><span>California College of Arts | 2009-2013</span><p>Summa cum laude, specialized in immersive media.</p></div>
+      </div>
+      <div>
+        <h3><i class="fas fa-briefcase"></i> Experience</h3>
+        <div class="timeline-item"><h4>Creative Director @ DevDigitax</h4><span>2020 — Present</span><p>Leading a team of 12 designers & engineers, delivering high-value solutions for Fortune 500 clients. Increased client retention by 45%.</p></div>
+        <div class="timeline-item"><h4>Senior Product Designer @ Fusion Labs</h4><span>2017 — 2020</span><p>Designed award-winning SaaS products used by 5M+ users worldwide, mentored junior designers.</p></div>
+        <div class="timeline-item"><h4>Web Architect @ StudioMorph</h4><span>2014 — 2017</span><p>Full-cycle web development, launched 30+ high-end projects.</p></div>
+      </div>
+      <h3 style="margin: 40px 0 24px;">Core Competencies</h3>
+      <div class="skill-item"><div class="skill-header"><span>React / Next.js</span><span>95%</span></div><div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>UI/UX Design</span><span>98%</span></div><div class="progress-bar"><div class="progress-fill" style="width:98%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>Node.js & Python</span><span>87%</span></div><div class="progress-bar"><div class="progress-fill" style="width:87%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>Branding & Strategy</span><span>92%</span></div><div class="progress-bar"><div class="progress-fill" style="width:92%"></div></div></div>
+    </div>
+    
+    <!-- PORTFOLIO PAGE with filter -->
+    <div id="portfolio-page" class="page">
+      <h2>Selected <span class="highlight">masterpieces</span></h2>
+      <div class="filter-buttons">
+        <button class="filter-btn active-filter" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Apps</button>
+        <button class="filter-btn" data-filter="brand">Brand Identity</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- dynamic portfolio will be injected -->
+      </div>
+    </div>
+    
+    <!-- BLOG / INSIGHTS page -->
+    <div id="blog-page" class="page">
+      <h2>Latest <span class="highlight">insights</span></h2>
+      <div style="display: grid; gap: 32px;">
+        <div class="service-card" style="padding: 18px;"><img src="https://picsum.photos/id/20/600/300" style="border-radius: 24px; width:100%; margin-bottom: 16px;" alt="blog"><h3>The Future of AI in UI Design</h3><p>Exploring generative interfaces and adaptive design systems that will dominate 2025.</p><span style="color:#3b82f6;">March 12, 2025</span></div>
+        <div class="service-card" style="padding: 18px;"><img src="https://picsum.photos/id/26/600/300" style="border-radius: 24px; width:100%; margin-bottom: 16px;" alt="blog"><h3>Why Web3 Identity Matters for Creatives</h3><p>Decentralized reputation and ownership – the next wave of digital presence.</p><span style="color:#3b82f6;">February 28, 2025</span></div>
+        <div class="service-card" style="padding: 18px;"><img src="https://picsum.photos/id/1/600/300" style="border-radius: 24px; width:100%; margin-bottom: 16px;" alt="blog"><h3>Performance optimization secrets</h3><p>How we achieved 99 lighthouse score on a heavy react app.</p><span style="color:#3b82f6;">February 10, 2025</span></div>
+      </div>
+      <div style="margin-top: 48px; background: #13161f; border-radius: 32px; padding: 28px; text-align: center;">
+        <i class="fas fa-newspaper"></i> Subscribe to the DevDigitax newsletter for exclusive insights.
+      </div>
+    </div>
+    
+    <!-- CONTACT PAGE -->
+    <div id="contact-page" class="page">
+      <h2>Let's create <span class="highlight">something iconic</span></h2>
+      <div class="mapbox" style="margin-bottom: 32px; border-radius: 40px; overflow: hidden; height: 240px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50470.47399939689!2d-122.4194155!3d37.7749295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6b8d2f6b%3A0x8b9b7b7f5b0f2f5b!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <input type="text" placeholder="Full name" id="fullName" required>
+          <input type="email" placeholder="Email address" id="emailAddr" required>
+        </div>
+        <textarea placeholder="Tell me about your vision..." id="msgContent" required></textarea>
+        <button type="submit" class="submit-btn" style="margin-top: 28px;"><i class="fas fa-paper-plane"></i> Send message</button>
+        <p id="formFeedback" style="margin-top: 16px; font-size: 14px;"></p>
+      </form>
+    </div>
+    
+    <footer>
+      <i class="fas fa-laptop-code"></i> Developed by <strong style="color:#3b82f6;">DevDigitax</strong> — Next-Gen Digital Agency | All rights reserved © 2025
+    </footer>
+  </div>
+</div>
+
+<script>
+  // --- portfolio data (premium collection)
+  const portfolioItems = [
+    { title: "Nexus Finance", category: "web", img: "https://picsum.photos/id/0/400/300", desc: "High-frequency trading dashboard" },
+    { title: "EcoChain", category: "brand", img: "https://picsum.photos/id/29/400/300", desc: "Sustainable brand identity" },
+    { title: "MediFlow AI", category: "mobile", img: "https://picsum.photos/id/42/400/300", desc: "Healthcare app for iOS" },
+    { title: "Cosmic Studio", category: "web", img: "https://picsum.photos/id/96/400/300", desc: "Creative agency website" },
+    { title: "Urban Threads", category: "brand", img: "https://picsum.photos/id/36/400/300", desc: "Streetwear brand identity" },
+    { title: "FitSync", category: "mobile", img: "https://picsum.photos/id/176/400/300", desc: "Cross-platform fitness tracker" },
+    { title: "Orbit CMS", category: "web", img: "https://picsum.photos/id/106/400/300", desc: "Headless CMS solution" },
+    { title: "Aether Glass", category: "brand", img: "https://picsum.photos/id/99/400/300", desc: "Luxury eyewear branding" }
+  ];
+  
+  function renderPortfolio(filter = "all") {
+    const grid = document.getElementById("portfolioGrid");
+    if (!grid) return;
+    const filtered = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
+    grid.innerHTML = filtered.map(item => `
+      <div class="portfolio-card">
+        <img src="${item.img}" alt="${item.title}" loading="lazy">
+        <div class="portfolio-info">
+          <h3>${item.title}</h3>
+          <p style="color:#94a3b8; font-size:14px">${item.desc}</p>
+          <span style="background:#1e293b; padding:4px 12px; border-radius:30px; font-size:12px;">${item.category === 'web' ? 'Web App' : (item.category === 'mobile' ? 'Mobile' : 'Branding')}</span>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  // navigation between pages
+  const navBtns = document.querySelectorAll("[data-nav]");
+  const pages = {
+    about: document.getElementById("about-page"),
+    resume: document.getElementById("resume-page"),
+    portfolio: document.getElementById("portfolio-page"),
+    blog: document.getElementById("blog-page"),
+    contact: document.getElementById("contact-page")
+  };
+  
+  function activatePage(pageId) {
+    Object.keys(pages).forEach(key => {
+      if(pages[key]) pages[key].classList.remove("active-page");
+    });
+    if(pages[pageId]) pages[pageId].classList.add("active-page");
+    navBtns.forEach(btn => {
+      if(btn.getAttribute("data-nav") === pageId) btn.classList.add("active");
+      else btn.classList.remove("active");
+    });
+    if(pageId === "portfolio") renderPortfolio("all");
+  }
+  
+  navBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const pageName = btn.getAttribute("data-nav");
+      activatePage(pageName);
+    });
+  });
+  
+  // filter portfolio logic
+  function initFilters() {
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    if(filterBtns.length) {
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach(b => b.classList.remove("active-filter"));
+          btn.classList.add("active-filter");
+          const filterVal = btn.getAttribute("data-filter");
+          renderPortfolio(filterVal);
+        });
+      });
+    }
+  }
+  
+  // contact form simulation with premium feedback
+  const contactForm = document.getElementById("contactForm");
+  if(contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("fullName")?.value;
+      const email = document.getElementById("emailAddr")?.value;
+      const msg = document.getElementById("msgContent")?.value;
+      const feedback = document.getElementById("formFeedback");
+      if(name && email && msg) {
+        feedback.innerHTML = `<i class="fas fa-check-circle"></i> Thanks ${name}, your message has been received! Our team will reach out within 24h.`;
+        feedback.style.color = "#4ade80";
+        contactForm.reset();
+        setTimeout(() => { feedback.innerHTML = ""; }, 4000);
+      } else {
+        feedback.innerHTML = "Please fill in all fields ✨";
+        feedback.style.color = "#f87171";
+      }
+    });
+  }
+  
+  // mobile menu / responsiveness extra: activate portfolio on first load + default
+  if(document.getElementById("portfolio-page")) {
+    renderPortfolio("all");
+    initFilters();
+  }
+  // reset active page on load if needed
+  activatePage("about");
+  
+  // Sidebar additional cool interactive: hover modern effect
+  const sidebar = document.querySelector(".sidebar-premium");
+  if(sidebar) {
+    sidebar.addEventListener("mousemove", (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      sidebar.style.transform = `perspective(800px) rotateX(${(y-0.5)*2}deg) rotateY(${(x-0.5)*2}deg)`;
+    });
+    sidebar.addEventListener("mouseleave", () => {
+      sidebar.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg)";
+    });
+  }
+  
+  // smooth typing effect on about page just for engagement
+  const aboutHeader = document.querySelector("#about-page h2");
+  if(aboutHeader && !aboutHeader.hasAttribute("data-animated")) {
+    aboutHeader.setAttribute("data-animated","true");
+    const text = aboutHeader.innerHTML;
+    aboutHeader.style.opacity = "0";
+    setTimeout(() => {
+      aboutHeader.style.transition = "opacity 0.6s";
+      aboutHeader.style.opacity = "1";
+    }, 100);
+  }
+</script>
+</body>
+</html>
